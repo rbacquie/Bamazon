@@ -133,7 +133,8 @@ function updateInventory() {
         }
     ]).then(function(input) {
         var item = input.item;
-        var queryUpdate = 'UPDATE products SET quantity = ' + (order.quantity + quantity) + ' WHERE item_id = ' + item;
+        var qtyUpdate = input.update;
+        var queryUpdate = 'UPDATE products SET quantity = ' + (qtyUpdate + res.quantity) + ' WHERE item_id = ' + item;
         connection.query(queryUpdate, function (err, res) {
             if (err) throw err;
 
@@ -144,3 +145,8 @@ function updateInventory() {
     })
     runManagement();
 }
+
+function AddNewStock() {
+
+    var insert = 'INSERT INTO products where ? and where ? and where and '
+} 
